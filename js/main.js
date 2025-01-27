@@ -18,7 +18,22 @@
       return document.querySelector(el)
     }
   }
+import { datadogRum } from '@datadog/browser-rum';
 
+datadogRum.init({
+    applicationId: 'b0d55dd2-8f2c-48f6-bd0b-dfeaad94a249',
+    clientToken: 'pub9cc0a1797f5061a633283b08c9b1df83',
+    // `site` refers to the Datadog site parameter of your organization
+    // see https://docs.datadoghq.com/getting_started/site/
+    site: 'datadoghq.com',
+    service: 'rum-training',
+    env: 'staging',
+    // Specify a version number to identify the deployed version of your application in Datadog
+    // version: '1.0.0',
+    sessionSampleRate: 100,
+    sessionReplaySampleRate: 20,
+    defaultPrivacyLevel: 'mask-user-input',
+});
   /**
    * Easy event listener function
    */
