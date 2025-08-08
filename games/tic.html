@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <!-- ======= ngupta dogpark RUM init======= -->
   <script
       src="https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js"
@@ -36,120 +37,163 @@
 
 <!-- ======= Start <head> ======= -->
 
+=======
+
 <head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Havana Club - Tic Tac Toe</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
 
- <meta charset="utf-8">
- <meta content="width=device-width, initial-scale=1.0" name="viewport">
- <title>Havana Club</title>
- <meta content="" name="description">
- <meta content="" name="keywords">
-
- <!-- Favicons -->
-  <link href="/img/favicon.ico" rel="icon">
-  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="/img/favicon.ico" rel="icon" />
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet"
+  />
 
   <!-- Vendor CSS Files -->
-  <link href="/css/vendor/aos.css" rel="stylesheet">
-  <link href="/css/vendor/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/vendor/bootstrap-icons.css" rel="stylesheet">
-  <link href="/css/vendor/boxicons.min.css" rel="stylesheet">
-  <link href="/css/vendor/glightbox.min.css" rel="stylesheet">
-  <link href="/css/vendor/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/css/vendor/aos.css" rel="stylesheet" />
+  <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/vendor/bootstrap-icons.css" rel="stylesheet" />
+  <link href="/css/vendor/boxicons.min.css" rel="stylesheet" />
+  <link href="/css/vendor/glightbox.min.css" rel="stylesheet" />
+  <link href="/css/vendor/swiper-bundle.min.css" rel="stylesheet" />
 
   <!-- Template Main CSS File -->
-  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet" />
 
+  <!-- Tic Tac Toe CSS -->
+  <link rel="stylesheet" href="/css/funcss/tic.css" />
 </head>
 
-<!-- ======= End <head> ======= -->
+<body>
+  <!-- Datadog RUM Init -->
+  <script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js"></script>
+  <script>
+    window.DD_RUM &&
+      window.DD_RUM.init({
+        clientToken: "pub02889030d6147b469c6736c64e609b35",
+        applicationId: "012a1d19-38df-4e55-9412-6ceb64e72490",
+        site: "datadoghq.com",
+        service: "datadogrum-pirates-games-page",
+        env: "test",
+        version: "1.1.0",
+        sessionSampleRate: 100,
+        sessionReplaySampleRate: 100,
+        trackUserInteractions: true,
+        trackResources: true,
+        trackLongTasks: true,
+        trackingConsent: "granted",
+        defaultPrivacyLevel: "allow",
+        allowFallbackToLocalStorage: "true",
+        beforeSend: function (event) {
+          if (event.type !== "error") {
+            return true;
+          }
+          const regexArray = [
+            /Uncaught "ResizeObserver loop completed with undelivered notifications."/,
+            /Cannot read (.+) of null (.+)/,
+            /null is not an object \(evaluating 'n.content'\)/,
+            /Cannot create property '(.+)' on string '(.+)'/,
+            /Cannot create property 'j' on string 'message'/,
+            /TypeError: Cannot create property '(.+)' on string '(.+)'/,
+            /TypeError: Cannot create property 'j' on string 'message'/,
+          ];
+          for (const regex of regexArray) {
+            if (event.error && event.error.message && event.error.message.match(regex)) {
+              return false;
+            }
+          }
+          return true;
+        },
+      });
+    window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
+  </script>
 
-  <!-- ======= Mobile nav toggle button ======= -->
+    <!-- Datadog Logs Initialization -->
+  <html>
+  <head>
+    <script type="text/javascript" src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-logs.js"></script>
+    <script>
+      window.DD_LOGS &&
+        window.DD_LOGS.init({
+          clientToken: 'pub02889030d6147b469c6736c64e609b35',
+          site: 'datadoghq.com',
+          forwardErrorsToLogs: true,
+          sessionSampleRate: 100,
+        })
+    </script>
+  </head>
+</html>
+
+  <!-- Mobile nav toggle button -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-  <!-- ======= Header ======= -->
+  <!-- Header -->
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="/img/profile-pic.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">YO HO HO AND A BOTTLE OF RUM!</a></h1>
+        <img src="/img/profile-pic.jpg" alt="Profile Picture" class="img-fluid rounded-circle" />
+        <h1 class="text-light">
+          <a href="index.html">YO HO HO AND A BOTTLE OF RUM!</a>
+        </h1>
         <div class="social-links mt-3 text-center">
-        <a href="/index.html" class="home"><i class="bx bx-home"></i></a>    
-        <a href="https://open.spotify.com/user/ng1992?si=96d4cd71a7ce48f3" class="spotify"><i class="bi bi-spotify"></i></a>
-        <a href="/games/tic.html" class="joystick"><i class="bi bi-controller"></i></a>
-        <a href="/test/index.html" class="wrench"><i class="bi bi-wrench"></i></a>
-        <a href="#" onclick="alert('Arrr, ye walk the plank, matey!!');" class="bug"><i class="bi bi-bug"></i></a>
-      </div>
+          <a href="/index.html" class="home"><i class="bx bx-home"></i></a>
+          <a href="https://open.spotify.com/user/ng1992?si=96d4cd71a7ce48f3" class="spotify" target="_blank" rel="noopener"><i class="bi bi-spotify"></i></a>
+          <a href="/games/tic.html" class="joystick"><i class="bi bi-controller"></i></a>
+          <a href="/test/index.html" class="wrench"><i class="bi bi-wrench"></i></a>
+          <a href="#" onclick="alert('Arrr, ye walk the plank, matey!!');" class="bug"><i class="bi bi-bug"></i></a>
+        </div>
       </div>
     </div>
   </header>
-  <!-- ======= End Header ======= -->
-    
-<!-- ======= Start Tic Tac Toe ====== -->
- <div id="main">
-         <h1>TIC TAC TOE</h1>
-         <p id="ins">
-               Game starts by just Tap on
-             box<br><br>First Player starts as
-             <b>Player X </b>And Second Player as
-             <b>Player 0</b>
-         </p>
-         <br><br>
-         <div class = "ui">
-             <div class="row">
-                 <input type="text" id= "b1"
-                        class="cell" onclick="myfunc_3(); myfunc();"
-                        readonly>
-                 <input type="text" id= "b2"
-                        class="cell" onclick="myfunc_4(); myfunc();"
-                        readonly>
-                 <input type="text" id= "b3" class="cell"
-                        onclick="myfunc_5(); myfunc();"
-                        readonly>
-             </div>
-             <div class="row">
-                 <input type="text" id= "b4"
-                        class="cell" onclick="myfunc_6(); myfunc();"
-                        readonly>
-                 <input type="text" id= "b5"
-                        class="cell" onclick="myfunc_7(); myfunc();"
-                        readonly>
-                 <input type="text" id= "b6"
-                        class="cell" onclick="myfunc_8(); myfunc();"
-                        readonly>
-             </div>
-             <div class="row">
-                 <input type="text" id= "b7"
-                        class="cell" onclick="myfunc_9(); myfunc();"
-                        readonly>
-                 <input type="text" id= "b8"
-                        class="cell" onclick="myfunc_10();myfunc();"
-                        readonly>
-                 <input type="text" id= "b9"
-                        class="cell" onclick="myfunc_11();myfunc();"
-                        readonly>
-             </div>
-         </div>
-         <br><br><br>
-         <button id="but" onclick="myfunc_2()">
-             RESET
-         </button>
-         <br><br>
-         <p id="print"></p>
-     </div>
-<!-- ======= End Tic Tac Toe ======= -->
 
-<!-- Tic Tac Toe JS  -->
-<script src="/js/funjs/tic.js"></script>
+  <!-- Main content -->
+  <main id="main" class="container py-4">
+    <h1 class="text-center mb-3">TIC TAC TOE</h1>
+    <p class="text-center" id="ins">
+      Game starts by just tapping on a box.<br />
+      <strong>Player X</strong> goes first and <strong>Player O</strong> goes second.
+    </p>
 
-<!-- Tic Tac Toe CSS -->
-<link rel="stylesheet" type="text/css" href="/css/funcss/tic.css">
+    <div class="ui my-4">
+      <div class="row mb-2">
+        <input type="text" id="b1" class="cell" onclick="myfunc_3(); myfunc();" readonly />
+        <input type="text" id="b2" class="cell" onclick="myfunc_4(); myfunc();" readonly />
+        <input type="text" id="b3" class="cell" onclick="myfunc_5(); myfunc();" readonly />
+      </div>
+      <div class="row mb-2">
+        <input type="text" id="b4" class="cell" onclick="myfunc_6(); myfunc();" readonly />
+        <input type="text" id="b5" class="cell" onclick="myfunc_7(); myfunc();" readonly />
+        <input type="text" id="b6" class="cell" onclick="myfunc_8(); myfunc();" readonly />
+      </div>
+      <div class="row mb-2">
+        <input type="text" id="b7" class="cell" onclick="myfunc_9(); myfunc();" readonly />
+        <input type="text" id="b8" class="cell" onclick="myfunc_10(); myfunc();" readonly />
+        <input type="text" id="b9" class="cell" onclick="myfunc_11(); myfunc();" readonly />
+      </div>
+    </div>
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div class="text-center">
+      <button id="but" class="btn btn-primary px-4" onclick="myfunc_2()">RESET</button>
+    </div>
 
-  <!-- Vendor JS Files -->
+    <p id="print" class="text-center mt-3"></p>
+  </main>
+
+  <!-- Back to top button -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"
+    ><i class="bi bi-arrow-up-short"></i
+  ></a>
+
+  <!-- JS Files -->
+  <script src="/js/funjs/tic.js"></script>
+
   <script src="/js/vendor/purecounter.js"></script>
   <script src="/js/vendor/aos.js"></script>
   <script src="/js/vendor/bootstrap.bundle.min.js"></script>
@@ -160,7 +204,7 @@
   <script src="/js/vendor/noframework.waypoints.js"></script>
   <script src="/js/vendor/validate.js"></script>
 
-  <!-- Template Main JS File -->
   <script src="/js/main.js"></script>
+</body>
 
 </html>

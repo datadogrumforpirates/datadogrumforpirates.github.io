@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <!-- ======= ngupta dogpark RUM init======= -->
 <script
     src="https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js"
@@ -34,20 +35,19 @@
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
 <!-- ======= Start <head> ======= -->
+=======
+
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Havana Club</title>
 
- <meta charset="utf-8">
- <meta content="width=device-width, initial-scale=1.0" name="viewport">
- <title>Havana Club</title>
- <meta content="" name="description">
- <meta content="" name="keywords">
-
- <!-- Favicons -->
+  <!-- Favicons -->
   <link href="/img/favicon.ico" rel="icon">
   <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,700|Poppins:300,400,500,600,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="/css/vendor/aos.css" rel="stylesheet">
@@ -59,82 +59,134 @@
 
   <!-- Template Main CSS File -->
   <link href="/css/main.css" rel="stylesheet">
+  <link href="/test/styles.css" rel="stylesheet">
 
+  <!-- RUM Initialization -->
+  <script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js" type="text/javascript"></script>
+  <script>
+    window.DD_RUM && window.DD_RUM.init({
+      clientToken: 'pub02889030d6147b469c6736c64e609b35',
+      applicationId: '012a1d19-38df-4e55-9412-6ceb64e72490',
+      site: 'datadoghq.com',
+      service: 'datadogrum-pirates-troubleshooting-page',
+      env: 'test123',
+      version: '1.1.0',
+      sessionSampleRate: 100,
+      sessionReplaySampleRate: 100,
+      trackUserInteractions: true,
+      trackResources: true,
+      trackLongTasks: true,
+      trackingConsent: 'granted',
+      defaultPrivacyLevel: 'allow',
+      allowFallbackToLocalStorage: true,
+      beforeSend: function (event) {
+        if (event.type !== 'error') return true;
+        const regexArray = [
+          /ResizeObserver loop completed/, /Cannot read (.+) of null/, /null is not an object/, /Cannot create property/,
+        ];
+        return !regexArray.some(regex => event?.error?.message?.match(regex));
+      }
+    });
+    window.DD_RUM?.setGlobalContextProperty('browser-timestamp', Date.now());
+    window.DD_RUM?.setGlobalContextProperty('time-lapsed-since-navigation', performance.now());
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const inputField = document.querySelector('#inputField');
+      if (inputField) {
+        inputField.addEventListener('keydown', (event) => {
+          const ref = window.DD_RUM.startDurationVital("input_field");
+          window.DD_RUM.addAction('keyboard_input', {
+            key: event.key,
+            inputValue: inputField.value,
+            fieldName: inputField.name || 'unknown_field',
+            timestamp: Date.now(),
+          });
+          window.DD_RUM.stopDurationVital(ref);
+        });
+      }
+    });
+  </script>
+
+    <!-- Datadog Logs Initialization -->
+  <html>
+  <head>
+    <script type="text/javascript" src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-logs.js"></script>
+    <script>
+      window.DD_LOGS &&
+        window.DD_LOGS.init({
+          clientToken: 'pub02889030d6147b469c6736c64e609b35',
+          site: 'datadoghq.com',
+          forwardErrorsToLogs: true,
+          sessionSampleRate: 100,
+        })
+    </script>
+  </head>
+</html>
+  
 </head>
-
-<!-- ======= End <head> ======= -->
 
 <body>
 
-<!-- ======= Header ======= -->
+  <!-- Mobile nav toggle button -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- ======= Header ======= -->
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
         <img src="/img/profile-pic.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">YO HO HO AND A BOTTLE OF RUM!</a></h1>
+        <h1 class="text-light"><a href="/index.html">YO HO HO AND A BOTTLE OF RUM!</a></h1>
         <div class="social-links mt-3 text-center">
-        <a href="/index.html" class="home"><i class="bx bx-home"></i></a>    
-        <a href="https://open.spotify.com/user/ng1992?si=96d4cd71a7ce48f3" class="spotify"><i class="bi bi-spotify"></i></a>
-        <a href="/games/tic.html" class="joystick"><i class="bi bi-controller"></i></a>
-        <a href="/test/index.html" class="wrench"><i class="bi bi-wrench"></i></a>
-        <a href="#" onclick="alert('Arrr, ye walk the plank, matey!!');" class="bug"><i class="bi bi-bug"></i></a>
-      </div>
+          <a href="/index.html" class="home"><i class="bx bx-home"></i></a>
+          <a href="https://open.spotify.com/user/ng1992?si=96d4cd71a7ce48f3" class="spotify"><i class="bi bi-spotify"></i></a>
+          <a href="/games/tic.html" class="joystick"><i class="bi bi-controller"></i></a>
+          <a href="/test/index.html" class="wrench"><i class="bi bi-wrench"></i></a>
+          <a href="#" onclick="alert('Arrr, ye walk the plank, matey!!');" class="bug"><i class="bi bi-bug"></i></a>
+        </div>
       </div>
     </div>
   </header>
   <!-- ======= End Header ======= -->
- 
- <main id="main">
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <main id="main">
+    <section id="form-section" class="section-bg">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Submit your feedback or ask a question</p>
+        </div>
 
-  <!-- Start Form -->
-  <div class="container">
-      <div class="text">
-         Contact us Form
+        <form action="#">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="First Name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Last Name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="email" class="form-control" placeholder="Email Address" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" placeholder="Website Name" required>
+            </div>
+            <div class="col-12 mb-3">
+              <label for="inputField">Enter some text:</label>
+              <input type="text" id="inputField" name="username" class="form-control" required />
+            </div>
+            <div class="col-12 mb-3">
+              <textarea class="form-control" rows="5" placeholder="Write your message..." required></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <form action="#">
-         <div class="form-row">
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">First Name</label>
-            </div>
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">Last Name</label>
-            </div>
-         </div>
-         <div class="form-row">
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">Email Address</label>
-            </div>
-            <div class="input-data">
-               <input type="text" required>
-               <div class="underline"></div>
-               <label for="">Website Name</label>
-            </div>
-         </div>
-         <div class="form-row">
-         <div class="input-data textarea">
-            <textarea rows="8" cols="80" required></textarea>
-            <br />
-            <div class="underline"></div>
-            <label for="">Write your message</label>
-            <br />
-            <div class="form-row submit-btn">
-               <div class="input-data">
-                  <div class="inner"></div>
-                  <input type="submit" value="submit">
-               </div>
-            </div>
-      </form>
-      </div>
-  <!-- ======= End Form ======= -->
+    </section>
 
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  </main>
 
   <!-- Vendor JS Files -->
   <script src="/js/vendor/purecounter.js"></script>
@@ -146,14 +198,7 @@
   <script src="/js/vendor/typed.min.js"></script>
   <script src="/js/vendor/noframework.waypoints.js"></script>
   <script src="/js/vendor/validate.js"></script>
-
-<!-- Template Main JS File -->
   <script src="/js/main.js"></script>
-
-</body>   
-  <!-- Template style CSS File -->
-  <link href="/test/styles.css" rel="stylesheet">
 </body>
- <!-- ======= End body======= -->
 
 </html>

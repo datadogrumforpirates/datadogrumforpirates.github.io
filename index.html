@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Havana Club – Datadog RUM for Pirates</title>
+  <meta name="description" content="A swashbuckling guide to Real User Monitoring (RUM) with Datadog – powered by pirates and Havana Club rum.">
+  <meta name="keywords" content="Havana Club, Datadog, RUM, Real User Monitoring, pirates, JavaScript, telemetry, frontend monitoring">
+  <meta name="author" content="Naveen G.">
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/img/favicon.ico" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
 
 <!-- ======= ngupta dogpark RUM init======= -->
 <script
@@ -22,76 +36,106 @@ datadogRum.init({
     sessionReplaySampleRate: 100,
     defaultPrivacyLevel: 'mask-user-input',
 });
-    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
-</script>
-<!-- ======= ngupta dogpark RUM end======= -->
-
-<!-- ======= Start <head> ======= -->
-
-<head>
-
- <meta charset="utf-8">
- <meta content="width=device-width, initial-scale=1.0" name="viewport">
- <title>Havana Club</title>
- <meta content="" name="description">
- <meta content="" name="keywords">
-
- <!-- Favicons -->
-  <link href="/img/favicon.ico" rel="icon">
-  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+=======
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700|Poppins:300,400,500,600,700" rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
-  <link href="/css/vendor/aos.css" rel="stylesheet">
-  <link href="/css/vendor/bootstrap.min.css" rel="stylesheet">
-  <link href="/css/vendor/bootstrap-icons.css" rel="stylesheet">
-  <link href="/css/vendor/boxicons.min.css" rel="stylesheet">
-  <link href="/css/vendor/glightbox.min.css" rel="stylesheet">
-  <link href="/css/vendor/swiper-bundle.min.css" rel="stylesheet">
+  <link href="/css/vendor/aos.css" rel="stylesheet" />
+  <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/vendor/bootstrap-icons.css" rel="stylesheet" />
+  <link href="/css/vendor/boxicons.min.css" rel="stylesheet" />
+  <link href="/css/vendor/glightbox.min.css" rel="stylesheet" />
+  <link href="/css/vendor/swiper-bundle.min.css" rel="stylesheet" />
 
-  <!-- Template Main CSS File -->
-  <link href="/css/main.css" rel="stylesheet">
+  <!-- Main CSS File -->
+  <link href="/css/main.css" rel="stylesheet" />
 
+  <!-- Datadog RUM Initialization -->
+  <script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js"></script>
+  <script>
+    window.DD_RUM && window.DD_RUM.init({
+      clientToken: 'pub02889030d6147b469c6736c64e609b35',
+      applicationId: '012a1d19-38df-4e55-9412-6ceb64e72490',
+      site: 'datadoghq.com',
+      service: 'datadogrum-pirates',
+      env: 'test',
+      version: 'test:for:naveen:1234',
+      sessionSampleRate: 100,
+      sessionReplaySampleRate: 100,
+      trackUserInteractions: true,
+      trackResources: true,
+      trackLongTasks: true,
+      trackingConsent: 'granted',
+      defaultPrivacyLevel: 'allow',
+      allowFallbackToLocalStorage: 'true',
+    });
+    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
+  </script>
 </head>
 
-<!-- ======= End <head> ======= -->
+  <!-- Datadog Logs Initialization -->
+  <html>
+  <head>
+    <script type="text/javascript" src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-logs.js"></script>
+    <script>
+      window.DD_LOGS &&
+        window.DD_LOGS.init({
+          clientToken: 'pub02889030d6147b469c6736c64e609b35',
+          site: 'datadoghq.com',
+          forwardErrorsToLogs: true,
+          sessionSampleRate: 100,
+        })
+    </script>
+  </head>
+</html>
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- Mobile Nav Toggle -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-  <!-- ======= Header ======= -->
+  <!-- Header -->
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="/img/profile-pic.jpg" alt="" class="img-fluid rounded-circle">
+        <img src="/img/profile-pic.jpg" alt="Captain's Profile Pic" class="img-fluid rounded-circle" />
         <h1 class="text-light"><a href="index.html">YO HO HO AND A BOTTLE OF RUM!</a></h1>
         <div class="social-links mt-3 text-center">
-        <a href="https://open.spotify.com/user/ng1992?si=96d4cd71a7ce48f3" class="spotify"><i class="bi bi-spotify"></i></a>
-        <a href="/games/tic.html" class="joystick"><i class="bi bi-controller"></i></a> 
-        <a href="/test/index.html" class="wrench"><i class="bi bi-wrench"></i></a>
-        <a href="#" onclick="alert('Arrr, ye walk the plank, matey!!');" class="bug"><i class="bi bi-bug"></i></a>    
-      </div>
+          <a href="https://open.spotify.com/user/ng1992?si=96d4cd71a7ce48f3" class="spotify"><i class="bi bi-spotify"></i></a>
+          <a href="/games/tic.html" class="joystick"><i class="bi bi-controller"></i></a>
+          <a href="/test/index.html" class="wrench"><i class="bi bi-wrench"></i></a>
+          <a href="#" onclick="alert('Arrr, ye walk the plank, matey!!');" class="bug"><i class="bi bi-bug"></i></a>
+        </div>
       </div>
     </div>
   </header>
-  <!-- ======= End Header ======= -->
-<!-- ======= Hero Section ======= -->
+
+  <!-- Hero Section -->
   <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="hero-container" data-aos="fade-in">
       <h1>Datadog RUM</h1>
-      <p> <span class="typed" data-typed-items="Arrr Matey!"></span></p>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/JImcvtJzIK8?&autoplay=1"frameborder="0" title="Why is the RUM gone?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      
+      <p><span class="typed" data-typed-items="Arrr Matey!"></span></p>
+      <iframe 
+        width="560" 
+        height="315" 
+        src="https://www.youtube.com/embed/JImcvtJzIK8?autoplay=1" 
+        title="Why is the RUM gone?" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen 
+        loading="lazy" 
+        sandbox="allow-scripts allow-same-origin allow-popups allow-presentation">
+      </iframe>
     </div>
   </section>
-<!-- ======= End Hero Section ======= -->
- 
- <main id="main">
 
+  <!-- Main Placeholder -->
+  <main id="main">
+    <!-- Future content goes here -->
+  </main>
+
+  <!-- Back to Top -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
@@ -105,7 +149,8 @@ datadogRum.init({
   <script src="/js/vendor/noframework.waypoints.js"></script>
   <script src="/js/vendor/validate.js"></script>
 
-  <!-- Template Main JS File -->
+  <!-- Main JS -->
   <script src="/js/main.js"></script>
+
 </body>
 </html>

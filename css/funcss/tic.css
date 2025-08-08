@@ -1,115 +1,94 @@
-h1 { 
-	color: orangered; 
-	margin-bottom: -5px; 
-} 
-p { 
-	margin-bottom: -10px; 
-} 
-.ui { 
-	display: flex; 
-	flex-direction: column; 
-	align-items: center; 
-} 
-.row { 
-	display: flex; 
-} 
-.cell { 
-	border: none; 
-	width: 80px; 
-	height: 80px; 
-	display: flex; 
-	align-items: center; 
-	justify-content: center; 
-	font-size: 24px; 
-	text-align: center; 
-	cursor: pointer; 
-} 
-.cell:active { 
-	outline: none; 
-} 
-/* 3*3 Grid */
-#b1{ 
-	border-bottom: 1px solid gray; 
-	border-right: 1px solid gray; 
-} 
-
-#b2 { 
-	border-bottom: 1px solid gray; 
-	border-right: 1px solid gray; 
-	border-left: 1px solid gray; 
-} 
-
-#b3 { 
-	border-bottom: 1px solid gray; 
-	border-left: 1px solid gray; 
-} 
-
-#b4 { 
-	border-top: 1px solid gray; 
-	border-bottom: 1px solid gray; 
-	border-right: 1px solid gray; 
-} 
-	
-#b5 { 
-	border: 1px solid gray; 
-} 
-
-#b6 { 
-	border-top: 1px solid gray; 
-	border-bottom: 1px solid gray; 
-	border-left: 1px solid gray; 
-} 
-
-#b7 { 
-	border-top: 1px solid gray; 
-	border-right: 1px solid gray; 
-} 
-
-#b8 { 
-	border-top: 1px solid gray; 
-	border-right: 1px solid gray; 
-	border-left: 1px solid gray; 
-} 
-
-#b9 { 
-	border-top: 1px solid gray; 
-	border-left: 1px solid gray; 
-} 
-/* Reset Button */
-#but { 
-	box-sizing: border-box; 
-	width: 95px; 
-	height: 40px; 
-	border: 1px solid dodgerblue; 
-	margin-left: auto; 
-	border-radius: 8px; 
-	font-family: Verdana, 
-		Geneva, Tahoma, sans-serif; 
-
-	background-color: whitesmoke; 
-	color: dodgerblue; 
-	font-size: 20px; 
-	cursor: pointer; 
-} 
-
-/* Player turn space */
-#print { 
-	font-family: Verdana, 
-		Geneva, Tahoma, sans-serif; 
-	color: dodgerblue; 
-	font-size: 20px; 
-} 
-
-/* Main Container */
-#main { 
-	text-align: center; 
-	margin-left: 250px;  /* Adjust this according to sidebar width */
-    	padding: 20px;
-} 
-
-/* Game Instruction Text */
-#ins { 
-	font-family: Verdana,Geneva, Tahoma, sans-serif; 
-	color: dodgerblue; 
+/* Headings and paragraphs */
+h1 {
+  color: orangered;
+  margin-bottom: 0.25rem; /* replaces negative margin with small positive spacing */
 }
 
+p {
+  margin-bottom: 0.5rem; /* small positive margin for spacing */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: dodgerblue;
+}
+
+/* Container */
+#main {
+  text-align: center;
+  margin-left: 250px; /* adjust to sidebar width */
+  padding: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Instructions paragraph */
+#ins {
+  color: dodgerblue;
+  margin-bottom: 1rem;
+}
+
+/* Game grid container */
+.ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* space between rows */
+}
+
+/* Each row in the grid */
+.row {
+  display: flex;
+  gap: 0.5rem; /* space between cells */
+  justify-content: center;
+}
+
+/* Cells */
+.cell {
+  border: 1px solid gray;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+/* Remove outline on active (clicked) cells */
+.cell:active {
+  outline: none;
+  background-color: #f0f0f0;
+}
+
+/* Reset button */
+#but {
+  box-sizing: border-box;
+  width: 100px;
+  height: 40px;
+  border: 1px solid dodgerblue;
+  border-radius: 8px;
+  background-color: whitesmoke;
+  color: dodgerblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 1rem auto 0 auto;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#but:hover,
+#but:focus {
+  background-color: dodgerblue;
+  color: white;
+  outline: none;
+}
+
+/* Player turn message */
+#print {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: dodgerblue;
+  font-size: 20px;
+  margin-top: 1rem;
+}
