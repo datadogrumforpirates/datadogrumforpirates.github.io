@@ -7,25 +7,21 @@
     type="text/javascript">
 </script>
 <script>
-    window.DD_RUM && window.DD_RUM.init({
-      clientToken: 'pub9cc0a1797f5061a633283b08c9b1df83',
-      applicationId: 'b0d55dd2-8f2c-48f6-bd0b-dfeaad94a249',
-      // `site` refers to the Datadog site parameter of your organization
-      // see https://docs.datadoghq.com/getting_started/site/
-      site: 'datadoghq.com',
-      service: 'datadogrum-pirates',
-      env: 'staging',
-      // Specify a version number to identify the deployed version of your application in Datadog
-      version: '1.1.0',
-      sessionSampleRate: 100,
-      sessionReplaySampleRate: 100,
-      trackUserInteractions: true,
-      trackResources: true,
-      trackLongTasks: true,
-      trackingConsent: 'granted',
-      defaultPrivacyLevel: 'allow',
-      allowFallbackToLocalStorage: 'true',  
-    });
+  import { datadogRum } from '@datadog/browser-rum';
+datadogRum.init({
+    applicationId: '79192b88-0072-4348-bf4b-5eea9f7bfb12',
+    clientToken: 'pubaf32433784a71d54facfeb14b97bc769',
+    // `site` refers to the Datadog site parameter of your organization
+    // see https://docs.datadoghq.com/getting_started/site/
+    site: 'datadoghq.com',
+    service: 'sdk-workshop-tsam',
+    env: 'staging',
+    // Specify a version number to identify the deployed version of your application in Datadog
+    version: '0.0.1',
+    sessionSampleRate: 100,
+    sessionReplaySampleRate: 100,
+    defaultPrivacyLevel: 'mask-user-input',
+});
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
 </script>
 <!-- ======= ngupta dogpark RUM end======= -->
