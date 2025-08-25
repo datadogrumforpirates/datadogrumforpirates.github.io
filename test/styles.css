@@ -27,14 +27,14 @@ body {
   margin-bottom: 15px;
 }
 
-/* White underline for section title */
+/* White underline spanning most of the form width */
 .section-title h2::after {
   content: "";
   display: block;
-  width: 80px; /* shorter than container width for a modern look */
+  width: calc(100% - 40px); /* full width minus 20px margin on each side */
   height: 3px;
   background: #fff;
-  margin: 10px auto 0 auto;
+  margin: 15px auto 0 auto; /* spacing from heading */
   border-radius: 2px;
 }
 
