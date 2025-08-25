@@ -1,93 +1,101 @@
 /* ==============================
-   Datadog Purple Themed Form Page
+   Datadog Purple Theme - Tic Tac Toe
    ============================== */
 
-/* General reset */
+/* General Page Styling */
 body {
-  font-family: 'Poppins', sans-serif;
+  background: #f7f5fb; /* light purple-gray */
   color: #2e2e2e;
-  background: linear-gradient(135deg, #632ca6 0%, #9c6ade 100%);
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-/* Section background */
-#form-section {
-  padding: 60px 20px;
-  background: transparent;
-  color: #fff;
+/* Headings & Instructions */
+h1, #ins, #print {
+  color: #632ca6; /* Datadog Purple */
+  font-weight: 600;
   text-align: center;
 }
 
-/* Section title */
-.section-title h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.section-title p {
-  font-size: 1.1rem;
-  color: #e6dff3;
-  margin-bottom: 30px;
-}
-
-/* Form wrapper */
-#form-section .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Inputs and textarea */
-.form-control {
-  border-radius: 8px;
-  border: 2px solid transparent;
-  padding: 12px 15px;
+#ins {
   font-size: 1rem;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1rem;
 }
 
-.form-control:focus {
-  border: 2px solid #632ca6;
-  box-shadow: 0 0 8px rgba(99, 44, 166, 0.4);
-  outline: none;
-}
-
-/* Labels */
-label {
+#print {
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #f0e9fb;
-  display: block;
-  margin-bottom: 8px;
-  text-align: left;
+  color: #4d1f80; /* darker purple */
+  margin-top: 1rem;
 }
 
-/* Submit button */
-.btn-primary {
-  background: #632ca6;
+/* Game Board Container */
+.ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+/* Each Row */
+.row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Tic Tac Toe Cells */
+.cell {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  border: 2px solid #632ca6;
+  border-radius: 12px;
+  margin: 4px;
+  cursor: pointer;
+  background: #ffffff;
+  color: #632ca6;
+  transition: all 0.3s ease;
+}
+
+.cell:hover {
+  background: #ece2f8; /* lighter purple */
+  transform: scale(1.05);
+}
+
+/* X and O colors */
+.cell[value="X"], .cell:read-only[value="X"] {
+  color: #4d1f80; /* deep purple for X */
+}
+
+.cell[value="O"], .cell:read-only[value="O"] {
+  color: #9c6ade; /* softer purple for O */
+}
+
+/* Reset Button */
+#but {
+  background-color: #632ca6;
   border: none;
-  padding: 12px 35px;
-  font-size: 1rem;
   font-weight: 600;
   border-radius: 25px;
-  transition: all 0.3s ease;
-  color: #fff;
+  padding: 10px 25px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover {
-  background: #4d1f80;
+#but:hover {
+  background-color: #4d1f80; /* darker purple */
   transform: scale(1.05);
 }
 
 /* Back to top button */
 .back-to-top {
   background: #632ca6;
-  color: #fff;
+  color: white;
   border-radius: 50%;
   transition: background 0.3s ease, transform 0.2s ease;
 }
@@ -95,11 +103,4 @@ label {
 .back-to-top:hover {
   background: #4d1f80;
   transform: scale(1.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  #form-section .container {
-    padding: 20px;
-  }
 }
