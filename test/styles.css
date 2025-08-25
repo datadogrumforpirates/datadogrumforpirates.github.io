@@ -1,188 +1,105 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+/* ==============================
+   Datadog Purple Themed Form Page
+   ============================== */
 
-* {
+/* General reset */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #2e2e2e;
+  background: linear-gradient(135deg, #632ca6 0%, #9c6ade 100%);
   margin: 0;
   padding: 0;
-  outline: none;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
-body {
-  background: linear-gradient(135deg, #632ca6 10%, #9c6ade 90%); /* Datadog purple gradient */
-  font-family: 'Poppins', sans-serif;
-  color: #2e2e2e;
-  margin-left: 300px;
-}
-
-/* Container card */
-.container {
-  max-width: 800px;
-  background: #fff;
-  padding: 25px 40px;
-  margin: 60px auto;
-  box-shadow: 0px 4px 15px rgba(99, 44, 166, 0.2); /* subtle purple shadow */
-  border-radius: 12px;
-}
-
-/* Title */
-.container .text {
-  text-align: center;
-  font-size: 36px;
-  font-weight: 700;
-  color: #632ca6; /* Datadog purple */
-  margin-bottom: 20px;
-}
-
-/* Form rows */
-form {
-  width: 100%;
-}
-
-.form-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.input-data {
-  flex: 1;
-  min-width: 45%;
-  margin: 10px;
-  position: relative;
-}
-
-.textarea {
-  flex-basis: 100%;
-  margin: 10px;
-}
-
-/* Input & Textarea styling */
-.input-data input,
-.textarea textarea {
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid rgba(99, 44, 166, 0.3);
-  font-size: 16px;
-  padding: 8px 0;
+/* Section background */
+#form-section {
+  padding: 60px 20px;
   background: transparent;
-  color: #2e2e2e;
-  transition: border-color 0.3s ease;
-}
-
-.input-data input:focus,
-.textarea textarea:focus {
-  border-bottom: 2px solid #632ca6;
-}
-
-/* Floating labels */
-.input-data label,
-.textarea label {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  font-size: 16px;
-  color: #999;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-
-.input-data input:focus ~ label,
-.input-data input:valid ~ label,
-.textarea textarea:focus ~ label,
-.textarea textarea:valid ~ label {
-  transform: translateY(-20px);
-  font-size: 14px;
-  color: #632ca6;
-}
-
-/* Underline animation */
-.input-data .underline,
-.textarea .underline {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  width: 100%;
-  background: transparent;
-}
-
-.input-data .underline:before,
-.textarea .underline:before {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #632ca6;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-}
-
-.input-data input:focus ~ .underline:before,
-.input-data input:valid ~ .underline:before,
-.textarea textarea:focus ~ .underline:before,
-.textarea textarea:valid ~ .underline:before {
-  transform: scaleX(1);
-}
-
-/* Submit Button */
-.submit-btn {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.submit-btn .input-data {
-  width: auto;
-  display: inline-block;
-  height: 45px;
-  position: relative;
-}
-
-.submit-btn .input-data .inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #632ca6, #9c6ade); /* Purple gradient */
-  transition: all 0.4s;
-  z-index: 1;
-  border-radius: 6px;
-}
-
-.submit-btn .input-data input {
-  position: relative;
-  z-index: 2;
-  background: none;
-  border: none;
   color: #fff;
-  font-size: 16px;
+  text-align: center;
+}
+
+/* Section title */
+.section-title h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.section-title p {
+  font-size: 1.1rem;
+  color: #e6dff3;
+  margin-bottom: 30px;
+}
+
+/* Form wrapper */
+#form-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs and textarea */
+.form-control {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.form-control:focus {
+  border: 2px solid #632ca6;
+  box-shadow: 0 0 8px rgba(99, 44, 166, 0.4);
+  outline: none;
+}
+
+/* Labels */
+label {
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  padding: 10px 30px;
+  color: #f0e9fb;
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
 }
 
-.submit-btn .input-data:hover .inner {
-  left: 0;
-  filter: brightness(1.1);
+/* Submit button */
+.btn-primary {
+  background: #632ca6;
+  border: none;
+  padding: 12px 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  color: #fff;
 }
 
-/* Mobile adjustments */
+.btn-primary:hover {
+  background: #4d1f80;
+  transform: scale(1.05);
+}
+
+/* Back to top button */
+.back-to-top {
+  background: #632ca6;
+  color: #fff;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-to-top:hover {
+  background: #4d1f80;
+  transform: scale(1.1);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  body {
-    margin-left: 0;
-  }
-  .container {
-    margin: 20px;
+  #form-section .container {
     padding: 20px;
   }
-  .form-row {
-    flex-direction: column;
-  }
-  .input-data {
-    min-width: 100%;
-  }
 }
-
