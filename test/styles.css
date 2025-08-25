@@ -9,29 +9,32 @@
 }
 
 body {
-  background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+  background: linear-gradient(135deg, #632ca6 10%, #9c6ade 90%); /* Datadog purple gradient */
   font-family: 'Poppins', sans-serif;
-  color: #333;
+  color: #2e2e2e;
   margin-left: 300px;
 }
 
+/* Container card */
 .container {
   max-width: 800px;
   background: #fff;
   padding: 25px 40px;
   margin: 60px auto;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(99, 44, 166, 0.2); /* subtle purple shadow */
+  border-radius: 12px;
 }
 
+/* Title */
 .container .text {
   text-align: center;
   font-size: 36px;
   font-weight: 700;
-  color: #149ddd;
+  color: #632ca6; /* Datadog purple */
   margin-bottom: 20px;
 }
 
+/* Form rows */
 form {
   width: 100%;
 }
@@ -55,17 +58,25 @@ form {
   margin: 10px;
 }
 
+/* Input & Textarea styling */
 .input-data input,
 .textarea textarea {
   width: 100%;
   border: none;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(99, 44, 166, 0.3);
   font-size: 16px;
   padding: 8px 0;
   background: transparent;
-  color: #333;
+  color: #2e2e2e;
+  transition: border-color 0.3s ease;
 }
 
+.input-data input:focus,
+.textarea textarea:focus {
+  border-bottom: 2px solid #632ca6;
+}
+
+/* Floating labels */
 .input-data label,
 .textarea label {
   position: absolute;
@@ -83,9 +94,10 @@ form {
 .textarea textarea:valid ~ label {
   transform: translateY(-20px);
   font-size: 14px;
-  color: #149ddd;
+  color: #632ca6;
 }
 
+/* Underline animation */
 .input-data .underline,
 .textarea .underline {
   position: absolute;
@@ -101,7 +113,7 @@ form {
   position: absolute;
   height: 2px;
   width: 100%;
-  background: #149ddd;
+  background: #632ca6;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -113,6 +125,7 @@ form {
   transform: scaleX(1);
 }
 
+/* Submit Button */
 .submit-btn {
   text-align: center;
   margin-top: 20px;
@@ -131,10 +144,10 @@ form {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(115deg, #56d8e4, #9f01ea);
+  background: linear-gradient(135deg, #632ca6, #9c6ade); /* Purple gradient */
   transition: all 0.4s;
   z-index: 1;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .submit-btn .input-data input {
@@ -153,8 +166,10 @@ form {
 
 .submit-btn .input-data:hover .inner {
   left: 0;
+  filter: brightness(1.1);
 }
 
+/* Mobile adjustments */
 @media (max-width: 768px) {
   body {
     margin-left: 0;
@@ -170,3 +185,4 @@ form {
     min-width: 100%;
   }
 }
+
