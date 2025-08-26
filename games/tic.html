@@ -53,15 +53,7 @@
       trackLongTasks: true,
       trackingConsent: "granted",
       defaultPrivacyLevel: "allow",
-      allowFallbackToLocalStorage: "true",
-      beforeSend: function(event) {
-  if (event.type === "error" && event.error && event.error.message) {
-    if (event.error.message === "myfunc_2 is not defined") {
-      event.error.message = "the reset button is broken";
-    }
-  }
-  return true; // send the event after modification
-}
+      allowFallbackToLocalStorage: "true"
     });
 
   window.DD_RUM && window.DD_RUM.setGlobalContextProperty("arrrrr", "im-a-pirate");
