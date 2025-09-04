@@ -2,6 +2,19 @@
    Datadog Purple Theme - Tic Tac Toe
    ============================== */
 
+/*Header */
+#header .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 150px;         /* bigger so text is legible */
+  height: 150px;        /* same as width → circle */
+  object-fit: contain;  /* keeps entire logo inside */
+  background-color: #2c2f3f; /* fills circle background */
+  border-radius: 50%;   /* ensures circle */
+  border: 8px solid #2c2f3f;
+  padding: 10px;        /* stops bottle/text from being cut */
+}
+
 /* General Page Styling */
 body {
   background: #f7f5fb; /* light purple-gray */
