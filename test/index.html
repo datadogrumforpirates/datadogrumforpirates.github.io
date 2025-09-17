@@ -44,7 +44,16 @@
       defaultPrivacyLevel: 'allow',
       //allowFallbackToLocalStorage: true,
       sessionPersistence: 'local-storage',
-      trackAnonymousUser: false
+      trackAnonymousUser: false, // ← add comma here
+    /* 🔽 Add this block */
+    beforeSend: function(event) {
+      if (event.type === "action" && event.action && event.action.target) {
+        if (event.action.target.name === "First Name") {
+          event.action.target.name = "FN Entry Field";
+        }
+      }
+      return true; // ensure the event is still sent
+    }
     });
   </script>
 
