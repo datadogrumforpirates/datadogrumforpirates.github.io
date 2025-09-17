@@ -49,20 +49,13 @@
       sessionPersistence: 'local-storage',
       trackAnonymousUser: false, // ← add comma here
     /* 🔽 Add this block */
-    beforeSend: (event, context) => {
-      if (event.type === 'view') {
-        try {
-          // Some SDK versions don’t populate view.name as "/" immediately.
-          // Use the event.view.url to determine the pathname and override name.
-          const url = new URL(event.view.url);
-          if (url.pathname === '/') {
-            event.view.name = 'homepage';
-          }
-        } catch (e) {
-          // Ignore invalid URLs just in case
+    beforeSend: (event) => {
+      if (event.type === "resource" && event.resource?.url) {
+        if (event.resource.url === "https://rum.naveengupta.info/img/favicon.ico") {
+          event.resource.url = "https://rum.naveengupta.info/img/dd-logo-favicon.ico";
         }
       }
-      // return nothing (or true) to allow sending the event
+      return true; // always return true to send the event
     }
     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
