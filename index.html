@@ -47,16 +47,7 @@
       defaultPrivacyLevel: 'allow',
       //allowFallbackToLocalStorage: 'true',
       sessionPersistence: 'local-storage',
-      trackAnonymousUser: false, // ← add comma here
-    /* 🔽 Add this block */
-    beforeSend: (event) => {
-      if (event.type === "resource" && event.resource?.url) {
-        if (event.resource.url === "https://rum.naveengupta.info/img/favicon.ico") {
-          event.resource.url = "https://rum.naveengupta.info/img/dd-logo-favicon.ico";
-        }
-      }
-      return true; // always return true to send the event
-    }
+      trackAnonymousUser: false
     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
   </script>
