@@ -61,6 +61,13 @@
           sessionSampleRate: 100
         })
     </script>
+    // throw some random error with no `error.message`
+    <script>
+  const s = document.createElement("script");
+  s.src = "https://google.com/not-a-real-file.js"; // any non-CORS JS
+  document.body.appendChild(s);
+</script>
+
   </head>
 </html>
   
