@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>RUM Resources – Datadog RUM for Pirates</title>
-  <meta name="description" content="Resources, docs, and charts for mastering Datadog Real User Monitoring." />
+  <meta name="description" content="Documentation and resources for Datadog Real User Monitoring." />
   <meta name="author" content="Naveen G." />
   <meta name="theme-color" content="#000000" />
 
@@ -66,88 +66,107 @@
   <!-- Mobile Nav Toggle -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-  <!-- Header -->
+  <!-- Sidebar -->
   <header id="header">
     <div class="d-flex flex-column">
+
       <div class="profile">
-        <img src="/img/profile-pic.jpg" alt="Captain Profile Pic" class="img-fluid rounded-circle" />
+        <img src="/img/profile-pic.jpg" alt="Captain's Profile Pic" class="img-fluid rounded-circle" />
         <h1 class="text-light">
-          <a href="/index.html">Back to the Ship</a>
+          <a href="/index.html">YO HO HO AND A BOTTLE OF RUM!</a>
         </h1>
+
+        <div class="social-links mt-3 text-center">
+          <a href="https://open.spotify.com/user/ng1992?si=96d4cd71a7ce48f3" class="spotify">
+            <i class="bi bi-spotify"></i>
+          </a>
+          <a href="/games/tic.html" class="joystick">
+            <i class="bi bi-controller"></i>
+          </a>
+          <a href="/test/index.html" class="wrench">
+            <i class="bi bi-wrench"></i>
+          </a>
+          <a href="/rumresources/" class="rum">
+            <i class="bi bi-bar-chart-line"></i>
+          </a>
+          <a href="#" onclick="alert('Arrr, ye walk the plank, matey!!');" class="bug">
+            <i class="bi bi-bug"></i>
+          </a>
+        </div>
       </div>
+
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+  <!-- Hero (Docs-style) -->
+  <section id="hero" class="d-flex align-items-center">
     <div class="hero-container" data-aos="fade-in">
-      <h1>RUM Resources</h1>
-      <p>Charts, docs, and treasure maps for Datadog Real User Monitoring</p>
+      <h1>Datadog RUM Resources</h1>
+      <p class="text-muted">
+        Documentation, guides, and reference material for Real User Monitoring.
+      </p>
     </div>
   </section>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main id="main">
 
-    <!-- Docs Section -->
+    <!-- Docs Index -->
     <section id="docs" class="py-5">
       <div class="container" data-aos="fade-up">
-        <div class="section-title text-center">
-          <h2>Datadog RUM Docs</h2>
-          <p>Official charts and sacred scrolls (links coming soon).</p>
+
+        <div class="section-title text-start">
+          <h2>RUM Documentation</h2>
+          <p class="text-muted">
+            Start here to instrument, analyze, and optimize user experience.
+          </p>
         </div>
 
-        <div class="row">
+        <div class="list-group">
 
-          <!-- Placeholder Card -->
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Getting Started</h5>
-                <p class="card-text">
-                  How to instrument RUM and get your first signals.
-                </p>
-                <a href="#" class="btn btn-outline-secondary disabled">
-                  Coming Soon
-                </a>
-              </div>
+          <a href="#"
+             class="list-group-item list-group-item-action"
+             onclick="DD_RUM && DD_RUM.addAction('rum_docs_click', { doc: 'getting_started' })">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Getting Started</h5>
+              <i class="bi bi-chevron-right"></i>
             </div>
-          </div>
+            <p class="mb-1">
+              Install Datadog RUM and send your first events.
+            </p>
+          </a>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Session Replay</h5>
-                <p class="card-text">
-                  Watch users sail your app in real time.
-                </p>
-                <a href="#" class="btn btn-outline-secondary disabled">
-                  Coming Soon
-                </a>
-              </div>
+          <a href="#"
+             class="list-group-item list-group-item-action"
+             onclick="DD_RUM && DD_RUM.addAction('rum_docs_click', { doc: 'session_replay' })">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Session Replay</h5>
+              <i class="bi bi-chevron-right"></i>
             </div>
-          </div>
+            <p class="mb-1">
+              Record and replay real user sessions.
+            </p>
+          </a>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100 shadow-sm">
-              <div class="card-body">
-                <h5 class="card-title">Performance & Web Vitals</h5>
-                <p class="card-text">
-                  LCP, CLS, INP, and all the metrics that matter.
-                </p>
-                <a href="#" class="btn btn-outline-secondary disabled">
-                  Coming Soon
-                </a>
-              </div>
+          <a href="#"
+             class="list-group-item list-group-item-action"
+             onclick="DD_RUM && DD_RUM.addAction('rum_docs_click', { doc: 'web_vitals' })">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">Performance & Web Vitals</h5>
+              <i class="bi bi-chevron-right"></i>
             </div>
-          </div>
+            <p class="mb-1">
+              Analyze LCP, CLS, INP, and frontend performance.
+            </p>
+          </a>
 
         </div>
+
       </div>
     </section>
 
     <!-- Future Space -->
-    <section id="future" class="section-bg py-5">
+    <section class="section-bg py-5">
       <div class="container text-center" data-aos="fade-up">
         <h2>More Treasure Ahead</h2>
         <p>
