@@ -1,1 +1,182 @@
-More information about getting started with Datadog RUM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RUM Resources – Datadog RUM for Pirates</title>
+  <meta name="description" content="Resources, docs, and charts for mastering Datadog Real User Monitoring." />
+  <meta name="author" content="Naveen G." />
+  <meta name="theme-color" content="#000000" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/img/favicon.ico" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Raleway:300,400,500,600,700|Poppins:300,400,500,600,700" rel="stylesheet" />
+
+  <!-- Vendor CSS -->
+  <link href="/css/vendor/aos.css" rel="stylesheet" />
+  <link href="/css/vendor/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/vendor/bootstrap-icons.css" rel="stylesheet" />
+  <link href="/css/vendor/boxicons.min.css" rel="stylesheet" />
+  <link href="/css/vendor/glightbox.min.css" rel="stylesheet" />
+  <link href="/css/vendor/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Main CSS -->
+  <link href="/css/main.css" rel="stylesheet" />
+
+  <!-- Datadog RUM -->
+  <script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-rum.js"></script>
+  <script>
+    window.DD_RUM && window.DD_RUM.init({
+      clientToken: 'pub02889030d6147b469c6736c64e609b35',
+      applicationId: '012a1d19-38df-4e55-9412-6ceb64e72490',
+      site: 'datadoghq.com',
+      service: 'datadogrum-pirates-rumresources',
+      env: 'test',
+      sessionSampleRate: 100,
+      sessionReplaySampleRate: 100,
+      trackUserInteractions: true,
+      trackResources: true,
+      trackLongTasks: true,
+      trackingConsent: 'granted',
+      defaultPrivacyLevel: 'allow'
+    });
+
+    window.DD_RUM &&
+      window.DD_RUM.setGlobalContextProperty('page_type', 'rum_resources');
+  </script>
+
+  <!-- Datadog Logs -->
+  <script src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-logs.js"></script>
+  <script>
+    window.DD_LOGS && window.DD_LOGS.init({
+      clientToken: 'pub02889030d6147b469c6736c64e609b35',
+      site: 'datadoghq.com',
+      forwardErrorsToLogs: true,
+      sessionSampleRate: 100
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Mobile Nav Toggle -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+  <!-- Header -->
+  <header id="header">
+    <div class="d-flex flex-column">
+      <div class="profile">
+        <img src="/img/profile-pic.jpg" alt="Captain Profile Pic" class="img-fluid rounded-circle" />
+        <h1 class="text-light">
+          <a href="/index.html">Back to the Ship</a>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <h1>RUM Resources</h1>
+      <p>Charts, docs, and treasure maps for Datadog Real User Monitoring</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main">
+
+    <!-- Docs Section -->
+    <section id="docs" class="py-5">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title text-center">
+          <h2>Datadog RUM Docs</h2>
+          <p>Official charts and sacred scrolls (links coming soon).</p>
+        </div>
+
+        <div class="row">
+
+          <!-- Placeholder Card -->
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Getting Started</h5>
+                <p class="card-text">
+                  How to instrument RUM and get your first signals.
+                </p>
+                <a href="#" class="btn btn-outline-secondary disabled">
+                  Coming Soon
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Session Replay</h5>
+                <p class="card-text">
+                  Watch users sail your app in real time.
+                </p>
+                <a href="#" class="btn btn-outline-secondary disabled">
+                  Coming Soon
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">Performance & Web Vitals</h5>
+                <p class="card-text">
+                  LCP, CLS, INP, and all the metrics that matter.
+                </p>
+                <a href="#" class="btn btn-outline-secondary disabled">
+                  Coming Soon
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Space -->
+    <section id="future" class="section-bg py-5">
+      <div class="container text-center" data-aos="fade-up">
+        <h2>More Treasure Ahead</h2>
+        <p>
+          Dashboards, demos, and cursed experiments coming soon.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to Top -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS -->
+  <script src="/js/vendor/purecounter.js"></script>
+  <script src="/js/vendor/aos.js"></script>
+  <script src="/js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="/js/vendor/glightbox.min.js"></script>
+  <script src="/js/vendor/isotope.pkgd.min.js"></script>
+  <script src="/js/vendor/swiper-bundle.min.js"></script>
+  <script src="/js/vendor/typed.min.js"></script>
+  <script src="/js/vendor/noframework.waypoints.js"></script>
+  <script src="/js/vendor/validate.js"></script>
+
+  <!-- Main JS -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
+
