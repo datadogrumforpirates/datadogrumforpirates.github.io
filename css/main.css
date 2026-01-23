@@ -1,41 +1,49 @@
+/*==============================================================================
+==============================================================================*/
+
 /*--------------------------------------------------------------
-# General
---------------------------------------------------------------*/
-body {
+  Variables (simple)
+  --------------------------------------------------------------*/
+:root{
+  --primary: #149ddd;
+  --primary-hover: #37b3ed;
+  --dark-bg: #040b14;
+  --muted: #a8a9b4;
+  --heading: #173b6c;
+  --text: #272829;
+  --light-bg: #f5f8fd;
+  --card-border: #e6eef6;
+}
+
+/*--------------------------------------------------------------
+  General
+  --------------------------------------------------------------*/
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: "Open Sans", sans-serif;
-  color: #272829;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #fff;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
-  color: #149ddd;
+  color: var(--primary);
   text-decoration: none;
 }
-
-a:hover {
-  color: #37b3ed;
-  text-decoration: none;
-}
+a:hover { color: var(--primary-hover); }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
-  text-align: center;
-}
-
-#header .profile img {
-  margin: 15px auto;
-  display: block;
-  width: 150px;         /* a bit larger so text is readable */
-  height: 150px;        /* same as width = circle */
-  object-fit: contain;  /* fit entire image inside circle */
-  background-color: #2c2f3f; /* fills empty space inside circle */
-  border-radius: 50%;   /* keep circle shape */
-  border: 8px solid #2c2f3f;
-  padding: 10px;        /* adds spacing so bottle/text aren’t cut */
+  margin: 0 0 0.5rem 0;
 }
 
 /*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
+  Header / Sidebar
+  --------------------------------------------------------------*/
 #header {
   position: fixed;
   top: 0;
@@ -43,25 +51,37 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
   width: 300px;
   padding: 0 15px;
-  background: #040b14;
+  background: var(--dark-bg);
   overflow-y: auto;
   z-index: 9997;
   transition: all 0.5s ease-in-out;
 }
 
+/* Profile block */
+#header .profile {
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+}
+
 #header .profile img {
-  margin: 15px auto;
   display: block;
+  margin: 15px auto;
   width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  background-color: #2c2f3f;
   border: 8px solid #2c2f3f;
+  box-sizing: border-box;
 }
 
 #header .profile h1 {
-  font-size: 24px;
-  margin: 0 auto;
+  font-size: 20px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 6px;
 }
 
 #header .profile h1 a,
@@ -70,74 +90,69 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
+/* Social/icon links */
+#header .profile .social-links {
+  margin-top: 12px;
+}
 #header .profile .social-links a {
   font-size: 18px;
   display: inline-block;
   background: #212431;
   color: #fff;
   padding: 8px 0;
-  margin-right: 4px;
+  margin-right: 6px;
   border-radius: 50%;
   text-align: center;
   width: 36px;
   height: 36px;
-  transition: 0.3s;
+  vertical-align: middle;
+  transition: background 0.2s ease, transform 0.12s ease;
 }
-
 #header .profile .social-links a:hover {
-  background: #149ddd;
+  background: var(--primary);
+  transform: translateY(-2px);
 }
 
 /*--------------------------------------------------------------
-# Main Layout
---------------------------------------------------------------*/
+  Main layout & responsive breakpoints
+  --------------------------------------------------------------*/
 #main {
-  margin-left: 300px;
+  margin-left: 300px; /* space for sidebar */
+  min-height: 100vh;
+  background: #fff;
+  transition: margin-left 0.3s ease;
 }
 
+/* Mobile / medium screens */
 @media (max-width: 1199px) {
-  #header {
-    left: -300px;
-  }
-
-  #main {
-    margin-left: 0;
-  }
+  #header { left: -300px; }
+  #main { margin-left: 0; }
 }
 
+/* Small screens tweak */
 @media (max-width: 900px) {
-  .profile h1 {
-    text-align: center !important;
-  }
+  #header .profile h1 { text-align: center !important; }
 }
 
 /*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
+  Navigation Menu
+  --------------------------------------------------------------*/
 .nav-menu {
   padding: 30px 0 0 0;
 }
+.nav-menu * { margin: 0; padding: 0; list-style: none; }
 
-.nav-menu * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.nav-menu > ul > li {
-  position: relative;
-  white-space: nowrap;
-}
+.nav-menu > ul > li { position: relative; white-space: nowrap; }
 
 .nav-menu a,
 .nav-menu a:focus {
   display: flex;
   align-items: center;
-  color: #a8a9b4;
+  color: var(--muted);
   padding: 12px 15px;
   margin-bottom: 8px;
   font-size: 15px;
-  transition: 0.3s;
+  transition: color 0.15s ease, background 0.15s ease;
 }
 
 .nav-menu a i,
@@ -159,12 +174,12 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu .active i,
 .nav-menu .active:focus i,
 .nav-menu li:hover > a i {
-  color: #149ddd;
+  color: var(--primary);
 }
 
 /*--------------------------------------------------------------
-# Mobile Navigation
---------------------------------------------------------------*/
+  Mobile Navigation Toggle
+  --------------------------------------------------------------*/
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -173,7 +188,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 40px;
   height: 40px;
   font-size: 24px;
-  background-color: #149ddd;
+  background-color: var(--primary);
   color: #fff;
   border-radius: 50px;
   border: none;
@@ -182,26 +197,30 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.4s;
+  transition: transform 0.3s ease, opacity 0.2s ease;
 }
+.mobile-nav-toggle:hover { transform: translateY(-2px); }
 
-.mobile-nav-active {
-  overflow: hidden;
-}
-
-.mobile-nav-active #header {
-  left: 0;
-}
+.mobile-nav-active { overflow: hidden; }
+.mobile-nav-active #header { left: 0; }
 
 /*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
+  Hero Section (home page)
+  NOTE: if you want a docs-style hero on specific pages, add
+  page-specific overrides using a body class (e.g., .rum-resources)
+  --------------------------------------------------------------*/
 #hero {
   width: 100%;
   height: 100vh;
   background: url("/img/hero-bg-new2.JPG") no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
+  /* background-attachment: fixed;  <-- avoid on mobile; enable via media query */
+  position: relative;
+}
+
+/* enable fixed bg only on large screens */
+@media (min-width: 1024px) {
+  #hero { background-attachment: fixed; }
 }
 
 #hero:before {
@@ -220,12 +239,13 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
   min-width: 100px;
   text-align: center;
+  padding-top: 2.5rem; /* space down from top for visibility with fixed header */
 }
 
 #hero h1 {
   font-size: 64px;
   font-weight: 700;
-  line-height: 56px;
+  line-height: 1.05;
   margin-bottom: 10px;
   color: #fff;
 }
@@ -238,200 +258,129 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero p span {
-  border-bottom: 3px solid #149ddd;
+  border-bottom: 3px solid var(--primary);
   letter-spacing: 1px;
   padding-bottom: 4px;
   color: #fff;
 }
 
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
+/* small screens hero tweaks */
 @media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 20px;
-  }
+  #hero h1 { font-size: 28px; line-height: 36px; }
+  #hero p { font-size: 16px; margin-bottom: 30px; }
 }
 
-/*--------------------------------------------------------------
-# Section Base Styles
---------------------------------------------------------------*/
-section {
-  padding: 60px 0;
-  overflow: hidden;
-}
+section { padding: 60px 0; overflow: hidden; }
+.section-bg { background: var(--light-bg); }
+.section-title { padding-bottom: 30px; }
 
-.section-bg {
-  background: #f5f8fd;
-}
-
-.section-title {
-  padding-bottom: 30px;
-}
-
+/* section title style */
 .section-title h2 {
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 700;
   padding-bottom: 20px;
   margin-bottom: 20px;
   position: relative;
-  color: #173b6c;
+  color: var(--heading);
 }
-
 .section-title h2::after {
   content: "";
   position: absolute;
   width: 50px;
   height: 3px;
-  background: #149ddd;
+  background: var(--primary);
   bottom: 0;
   left: 0;
 }
+.section-title p { margin-bottom: 0; }
 
-.section-title p {
-  margin-bottom: 0;
-}
-
+/* alternative smaller section header */
 .section-title2 h2 {
   font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #173b6c;
-}
-
-/*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
-.about {
-  text-align: center;
-}
-
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.about .content ul i {
-  font-size: 16px;
-  color: #149ddd;
-  margin-right: 5px;
-}
-
-.about .content ul strong {
-  margin-right: 10px;
-}
-
-.about .content p:last-child {
-  margin-bottom: 0;
-}
-
-.img-about {
-  height: 1219px;
-  width: 1000px;
-  margin: 0 auto;
-}
-
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-.skills {
-  text-align: center;
-}
-
-.skills-title {
-  font-size: 36px;
   font-weight: 700;
-  color: #173b6c;
-  margin-bottom: 0.5rem;
+  margin-bottom: 20px;
+  color: var(--heading);
 }
 
-.skills-icon {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  font-size: 18px;
-  color: #000;
-  width: 100%;
-}
+.about { text-align: center; }
+.about .content ul { list-style: none; padding: 0; margin: 0; }
+.about .content ul li { display: flex; align-items: center; margin-bottom: 20px; justify-content: center; }
+.about .content ul i { font-size: 16px; color: var(--primary); margin-right: 8px; }
+.about .content ul strong { margin-right: 10px; }
+.about .content p:last-child { margin-bottom: 0; }
 
-.computer-skills,
-.tech-skills {
-  float: left;
-  margin: 1%;
-  font-size: 16px;
-  flex-basis: 100%;
-  margin-bottom: 0.5rem;
-}
-
-.image {
-  height: 150px;
-  width: 150px;
+/* Replace hard-coded large image sizes with responsive constraints */
+.img-about {
+  max-width: 100%;
+  height: auto;
   display: block;
   margin: 0 auto;
+  width: min(1000px, 100%);
 }
 
-ul {
-  list-style-type: none;
+/* Skills */
+.skills { text-align: center; }
+.skills-title { font-size: 36px; font-weight: 700; color: var(--heading); margin-bottom: .5rem; }
+.skills-icon { display: flex; flex-wrap: wrap; justify-content: space-between; font-size: 18px; color: #000; width: 100%; }
+.computer-skills, .tech-skills {
+  margin: 1% 0;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
+.image { height: 150px; width: 150px; display: block; margin: 0 auto; }
 
-.computer-skills ul i,
-.tech-skills ul i {
-  margin-right: 5px;
-  color: #149ddd;
-  line-height: 0;
-}
+/* make lists reset globally here */
+ul { list-style-type: none; padding-left: 0; }
 
+/* icon list tweaks */
+.computer-skills ul i, .tech-skills ul i { margin-right: 5px; color: var(--primary); line-height: 1; }
+
+/* layout for wider screens */
 @media (min-width: 600px) {
-  main {
-    flex-wrap: nowrap;
-  }
-
-  .computer-skills,
-  .tech-skills {
-    flex-basis: 31.3%;
-  }
+  main { display: flex; flex-direction: column; }
+  .computer-skills, .tech-skills { width: 31.3%; }
 }
 
 /*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
-.photography,
-.cooking {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.photography-text,
-.cooking-text {
-  font-size: 18px;
-  margin: 0 auto;
-}
+  Portfolio / simple text blocks
+  --------------------------------------------------------------*/
+.photography, .cooking { text-align: center; margin: 0 auto; }
+.photography-text, .cooking-text { font-size: 18px; margin: 0 auto; }
 
 /*--------------------------------------------------------------
-# Back to Top Button
---------------------------------------------------------------*/
+  Docs-index/List Group styling (good default for rumresources)
+  --------------------------------------------------------------*/
+.list-group {
+  margin-top: 1rem;
+}
+.list-group-item {
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 12px;
+  background: #fff;
+  transition: background-color 0.12s ease, box-shadow 0.12s ease;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.list-group-item:hover {
+  background-color: #f6fbfe;
+  box-shadow: 0 1px 6px rgba(11, 43, 58, 0.04);
+}
+.list-group-item h5 { font-size: 16px; margin: 0; font-weight: 600; color: #0b2b3a; }
+.list-group-item p { margin: 6px 0 0 0; color: #546e7a; font-size: 14px; }
+
+/*--------------------------------------------------------------
+  Back to Top Button
+  --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #149ddd;
+  background: var(--primary);
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -439,18 +388,42 @@ ul {
   visibility: hidden;
   opacity: 0;
 }
+.back-to-top i { font-size: 28px; color: #fff; line-height: 0; }
+.back-to-top:hover { background: #2eafec; }
+.back-to-top.active { visibility: visible; opacity: 1; }
 
-.back-to-top i {
-  font-size: 28px;
-  color: #fff;
-  line-height: 0;
+/*--------------------------------------------------------------
+  Small utilities
+  --------------------------------------------------------------*/
+.text-muted { color: #6b7780; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; box-sizing: border-box; }
+
+/*--------------------------------------------------------------
+  Page-specific overrides (example: docs style)
+  Use a body class like <body class="rum-resources"> on rumresources pages
+  --------------------------------------------------------------*/
+.rum-resources h1, .rum-resources h2, .rum-resources h3,
+.rum-resources h4, .rum-resources h5, .rum-resources h6 {
+  text-align: left;
+  color: #0f1720;
 }
 
-.back-to-top:hover {
-  background: #2eafec;
+.rum-resources #hero {
+  min-height: 38vh;
+  background: #ffffff;
+  background-image: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eef6fb;
+  padding: 3.5rem 0;
+}
+.rum-resources #hero .hero-container { width: 100%; max-width: 960px; margin-left: 300px; padding: 0 2rem; }
+.rum-resources #main { margin-left: 300px; background: #fff; }
+.rum-resources .container { max-width: 960px; padding: 0 2rem; }
+
+/* keep responsive for docs page */
+@media (max-width: 1199px) {
+  .rum-resources #hero .hero-container, .rum-resources .container { margin-left: 0; padding: 0 1rem; }
+  .rum-resources #main { margin-left: 0; }
 }
 
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
-}
