@@ -2,31 +2,32 @@
    Datadog Purple Theme - Tic Tac Toe
    ============================== */
 
-/*Header */
+/* Header */
 #header .profile img {
   margin: 15px auto;
   display: block;
-  width: 150px;         /* bigger so text is legible */
-  height: 150px;        /* same as width → circle */
-  object-fit: contain;  /* keeps entire logo inside */
-  background-color: #2c2f3f; /* fills circle background */
-  border-radius: 50%;   /* ensures circle */
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  background-color: #2c2f3f;
+  border-radius: 50%;
   border: 8px solid #2c2f3f;
-  padding: 10px;        /* stops bottle/text from being cut */
+  padding: 10px;
 }
 
 /* General Page Styling */
 body {
-  background: #f7f5fb; /* light purple-gray */
+  background: #f7f5fb;
   color: #2e2e2e;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* prevent right-side whitespace */
 }
 
 /* Headings & Instructions */
 h1, #ins, #print {
-  color: #632ca6; /* Datadog Purple */
+  color: #632ca6;
   font-weight: 600;
   text-align: center;
 }
@@ -39,8 +40,20 @@ h1, #ins, #print {
 #print {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #4d1f80; /* darker purple */
+  color: #4d1f80;
   margin-top: 1rem;
+}
+
+/* Main content area — offset by sidebar width, fill remaining space */
+#main.container {
+  margin-left: 300px;
+  margin-right: 0;
+  max-width: calc(100% - 300px);
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Game Board Container */
@@ -75,17 +88,19 @@ h1, #ins, #print {
 }
 
 .cell:hover {
-  background: #ece2f8; /* lighter purple */
+  background: #ece2f8;
   transform: scale(1.05);
 }
 
 /* X and O colors */
-.cell[value="X"], .cell:read-only[value="X"] {
-  color: #4d1f80; /* deep purple for X */
+.cell[value="X"],
+.cell:read-only[value="X"] {
+  color: #4d1f80;
 }
 
-.cell[value="O"], .cell:read-only[value="O"] {
-  color: #9c6ade; /* softer purple for O */
+.cell[value="O"],
+.cell:read-only[value="O"] {
+  color: #9c6ade;
 }
 
 /* Reset Button */
@@ -101,7 +116,7 @@ h1, #ins, #print {
 }
 
 #but:hover {
-  background-color: #4d1f80; /* darker purple */
+  background-color: #4d1f80;
   transform: scale(1.05);
 }
 
@@ -116,4 +131,21 @@ h1, #ins, #print {
 .back-to-top:hover {
   background: #4d1f80;
   transform: scale(1.1);
+}
+
+/* Responsive — sidebar hides at 1199px, reset main to full width */
+@media (max-width: 1199px) {
+  #main.container {
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+/* Small screens — shrink cells so board fits */
+@media (max-width: 500px) {
+  .cell {
+    width: 75px;
+    height: 75px;
+    font-size: 1.8rem;
+  }
 }
