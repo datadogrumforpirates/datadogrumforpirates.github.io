@@ -19,17 +19,22 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #4d1f80 0%, #632ca6 50%, #9c6ade 100%);
-  background-attachment: fixed; /* gradient stays put while scrolling */
+  background: linear-gradient(135deg, #4d1f80 0%, #632ca6 50%, #9c6ade 100%) !important;
+  background-attachment: fixed !important;
   margin: 0;
   padding: 0;
 }
 
-/* Section background */
+/* Section background — override .section-bg from main.css */
 #form-section {
   padding: 60px 20px;
-  background: transparent;
+  background: transparent !important; /* fight main.css .section-bg */
   text-align: center;
+}
+
+/* #main must also be transparent so gradient shows through */
+#main {
+  background: transparent !important;
 }
 
 /* Section title */
@@ -75,11 +80,13 @@ body {
 /* Labels */
 label {
   font-weight: 600;
-  color: #f0e9fb;
+  color: #fff;
   display: block;
   margin-bottom: 8px;
   text-align: left;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
 }
 
 /* Inputs and textarea */
