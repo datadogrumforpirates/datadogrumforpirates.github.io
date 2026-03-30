@@ -16,14 +16,19 @@
 }
 
 /* General Page Styling */
+html {
+  background: #fff !important; /* prevent html element showing through at bottom */
+  min-height: 100%;
+}
+
 body {
-  background: #f7f5fb !important;
+  background: #fff !important;
   color: #2e2e2e;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  min-height: 100vh; /* stretch body to full viewport — no color bleed at bottom */
+  min-height: 100vh;
 }
 
 /* Headings & Instructions */
