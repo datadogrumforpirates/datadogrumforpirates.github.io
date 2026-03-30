@@ -2,24 +2,25 @@
    Datadog Purple Themed Form Page
    ============================== */
 
-/*Header */
+/* Header */
 #header .profile img {
   margin: 15px auto;
   display: block;
-  width: 150px;         /* bigger so text is legible */
-  height: 150px;        /* same as width → circle */
-  object-fit: contain;  /* keeps entire logo inside */
-  background-color: #2c2f3f; /* fills circle background */
-  border-radius: 50%;   /* ensures circle */
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  background-color: #2c2f3f;
+  border-radius: 50%;
   border: 8px solid #2c2f3f;
-  padding: 10px;        /* stops bottle/text from being cut */
+  padding: 10px;
 }
 
 /* General reset */
 body {
   font-family: 'Poppins', sans-serif;
   color: #fff;
-  background: linear-gradient(135deg, #632ca6 0%, #9c6ade 100%);
+  background: linear-gradient(135deg, #4d1f80 0%, #632ca6 50%, #9c6ade 100%);
+  background-attachment: fixed; /* gradient stays put while scrolling */
   margin: 0;
   padding: 0;
 }
@@ -36,52 +37,39 @@ body {
   font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); /* lifts heading off gradient */
   position: relative;
   margin-bottom: 15px;
 }
 
-/* White underline spanning most of the form width */
+/* White underline */
 .section-title h2::after {
   content: "";
   display: block;
-  width: calc(100% - 40px); /* full width minus 20px margin on each side */
+  width: calc(100% - 40px);
   height: 3px;
-  background: #fff;
-  margin: 15px auto 0 auto; /* spacing from heading */
+  background: rgba(255, 255, 255, 0.7);
+  margin: 15px auto 0 auto;
   border-radius: 2px;
 }
 
 .section-title p {
   font-size: 1.1rem;
-  color: #e6dff3;
+  color: #f0e9fb; /* brighter than before */
+  font-weight: 500;
   margin-bottom: 30px;
 }
 
 /* Form wrapper */
 #form-section .container {
-  max-width: 700px; /* center & cap form width */
+  max-width: 700px;
   margin: 0 auto;
   padding: 40px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12); /* slightly more opaque */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* subtle glass edge */
   border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Inputs and textarea */
-.form-control {
-  border-radius: 8px;
-  border: 2px solid transparent;
-  padding: 12px 15px;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.95);
-  color: #2e2e2e;
-}
-
-.form-control:focus {
-  border: 2px solid #632ca6;
-  box-shadow: 0 0 8px rgba(99, 44, 166, 0.4);
-  outline: none;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px); /* frosted glass effect */
 }
 
 /* Labels */
@@ -91,23 +79,52 @@ label {
   display: block;
   margin-bottom: 8px;
   text-align: left;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Inputs and textarea */
+.form-control {
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.4); /* visible white border */
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.92);
+  color: #2e2e2e;
+  font-weight: 500;
+}
+
+.form-control::placeholder {
+  color: #7b4db5; /* purple placeholder — readable on white input bg */
+  opacity: 1;
+  font-weight: 400;
+}
+
+.form-control:focus {
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+  background: #fff;
+  outline: none;
 }
 
 /* Submit button */
 .btn-primary {
-  background: #632ca6;
+  background: #fff;
   border: none;
   padding: 12px 35px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 25px;
+  color: #632ca6; /* purple text on white button — high contrast */
   transition: all 0.3s ease;
-  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-  background: #4d1f80;
+  background: #f0e9fb;
+  color: #4d1f80;
   transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* Back to top button */
@@ -124,15 +141,19 @@ label {
 }
 
 /* Responsive adjustments */
+@media (max-width: 1199px) {
+  #main {
+    margin-left: 0;
+  }
+}
+
 @media (max-width: 768px) {
   #form-section .container {
     padding: 20px;
   }
-
   .section-title h2 {
     font-size: 1.8rem;
   }
-
   .section-title h2::after {
     width: 60px;
   }
