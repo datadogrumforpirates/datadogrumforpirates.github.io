@@ -46,6 +46,12 @@
       sessionPersistence: 'local-storage',
       trackAnonymousUser: false
     });
+    // Set user identity
+     window.DD_RUM && window.DD_RUM.setUser({
+       id: 'user-123',          // required — unique user ID
+       name: 'John Doe',        // optional
+       email: sha256('john@example.com') // optional
+     });
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
   </script>
     <!-- Datadog Logs Initialization -->
