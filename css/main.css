@@ -426,3 +426,6 @@ ul { list-style-type: none; padding-left: 0; }
   .rum-resources #hero .hero-container, .rum-resources .container { margin-left: 0; padding: 0 1rem; }
   .rum-resources #main { margin-left: 0; }
 }
+
+/* allow iframe in hero to render without clipping */
+#hero { overflow: visible; }
