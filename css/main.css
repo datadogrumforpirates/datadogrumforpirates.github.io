@@ -412,6 +412,7 @@ ul { list-style-type: none; padding-left: 0; }
   min-height: 38vh;
   background: #ffffff;
   background-image: none;
+  background-attachment: initial;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eef6fb;
