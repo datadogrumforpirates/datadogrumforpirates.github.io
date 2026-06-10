@@ -409,12 +409,27 @@ ul { list-style-type: none; padding-left: 0; }
 }
 
 .rum-resources #hero {
-  min-height: 38vh;
+  min-height: 28vh;
+  background: #6d2f8f;
+  background-image: none;
+  background-attachment: scroll;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #eef6fb;
+  border-bottom: none;
   padding: 3.5rem 0;
 }
+
+.rum-resources #hero h1 {
+  color: #ffffff;
+  font-size: 48px;
+}
+
+.rum-resources #hero p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
 .rum-resources #hero .hero-container { width: 100%; max-width: 960px; margin-left: 300px; padding: 0 2rem; }
 .rum-resources #main { margin-left: 300px; background: #fff; }
 .rum-resources .container { max-width: 960px; padding: 0 2rem; }
