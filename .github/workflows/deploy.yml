@@ -27,8 +27,3 @@ jobs:
     steps:
       - uses: actions/deploy-pages@v5
         id: deployment
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
