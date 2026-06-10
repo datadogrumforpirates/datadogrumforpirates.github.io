@@ -51,7 +51,7 @@
     window.DD_RUM && window.DD_RUM.setGlobalContextProperty('arrrrr', 'im-a-pirate');
     window.DD_RUM &&
       window.DD_RUM.setGlobalContextProperty('page_type', 'rum_resources');
-      window.DD_RUM.setGlobalContextProperty('client_time', {
+    window.DD_RUM && window.DD_RUM.setGlobalContextProperty('client_time', {
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         utc_offset: new Date().getTimezoneOffset(),
         locale: navigator.language
@@ -112,7 +112,7 @@
 
   <!-- Hero (Docs-style) -->
   <section id="hero" class="d-flex align-items-center">
-    <div class="hero-container" data-aos="fade-in" style="margin-left: 300px; padding: 0 2rem; width: 100%;">
+    <div class="hero-container" data-aos="fade-in">
       <h1>Datadog RUM Resources</h1>
       <p class="text-muted">
         Documentation, guides, and reference material for Real User Monitoring.
@@ -190,15 +190,9 @@
   </a>
 
   <!-- Vendor JS -->
-  <script src="/js/vendor/purecounter.js"></script>
   <script src="/js/vendor/aos.js"></script>
   <script src="/js/vendor/bootstrap.bundle.min.js"></script>
-  <script src="/js/vendor/glightbox.min.js"></script>
-  <script src="/js/vendor/isotope.pkgd.min.js"></script>
-  <script src="/js/vendor/swiper-bundle.min.js"></script>
   <script src="/js/vendor/typed.min.js"></script>
-  <script src="/js/vendor/noframework.waypoints.js"></script>
-  <script src="/js/vendor/validate.js"></script>
 
   <!-- Main JS -->
   <script src="/js/main.js"></script>

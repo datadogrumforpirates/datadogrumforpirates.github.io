@@ -42,7 +42,6 @@
       trackLongTasks: true,
       trackingConsent: 'granted',
       defaultPrivacyLevel: 'allow',
-      //allowFallbackToLocalStorage: 'true',
       sessionPersistence: 'local-storage',
       trackAnonymousUser: false,
       trackResourceHeaders: DD_RUM.DEFAULT_TRACKED_RESOURCE_HEADERS.map((name) => ({ name }))
@@ -54,10 +53,8 @@
       locale: navigator.language
     });
   </script>
-    <!-- Datadog Logs Initialization -->
-  <html>
-  <head>
-    <script type="text/javascript" src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-logs.js"></script>
+  <!-- Datadog Logs Initialization -->
+  <script type="text/javascript" src="https://www.datadoghq-browser-agent.com/us1/v6/datadog-logs.js"></script>
     <script>
       window.DD_LOGS &&
         window.DD_LOGS.init({
@@ -66,9 +63,7 @@
           forwardErrorsToLogs: true,
           sessionSampleRate: 100
         })
-    </script>  
-  </head>
-</html>
+    </script>
   
 </head>
 
@@ -81,7 +76,7 @@
   <header id="header">
     <div class="d-flex flex-column">
       <div class="profile">
-        <img src="/img/profile-pic.jpg" alt="" class="img-fluid rounded-circle">
+        <img src="/img/profile-pic.jpg" alt="Captain\'s Profile Pic" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="/index.html">YO HO HO AND A BOTTLE OF RUM!</a></h1>
         <div class="social-links mt-3 text-center">
           <a href="/index.html" class="home"><i class="bx bx-home"></i></a>
@@ -137,15 +132,9 @@
   </main>
 
   <!-- Vendor JS Files -->
-  <script src="/js/vendor/purecounter.js"></script>
   <script src="/js/vendor/aos.js"></script>
   <script src="/js/vendor/bootstrap.bundle.min.js"></script>
-  <script src="/js/vendor/glightbox.min.js"></script>
-  <script src="/js/vendor/isotope.pkgd.min.js"></script>
-  <script src="/js/vendor/swiper-bundle.min.js"></script>
   <script src="/js/vendor/typed.min.js"></script>
-  <script src="/js/vendor/noframework.waypoints.js"></script>
-  <script src="/js/vendor/validate.js"></script>
   <script src="/js/main.js"></script>
 </body>
 
