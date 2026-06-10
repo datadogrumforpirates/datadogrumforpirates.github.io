@@ -37,29 +37,6 @@ console.log("🦜 Ahoy! Script is running!");
   };
 
   /*---------------------------
-   * Navbar link state on scroll
-   ----------------------------*/
-  const navbarlinks = select('#navbar .scrollto', true);
-  const updateNavbarLinks = () => {
-    const scrollY = window.scrollY + 200;
-    navbarlinks.forEach(link => {
-      const section = select(link.hash);
-      if (!section) return;
-      if (
-        scrollY >= section.offsetTop &&
-        scrollY <= (section.offsetTop + section.offsetHeight)
-      ) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  };
-
-  window.addEventListener('load', updateNavbarLinks);
-  onscroll(document, updateNavbarLinks);
-
-  /*---------------------------
    * Back to top button
    ----------------------------*/
   const backToTop = select('.back-to-top');
@@ -123,69 +100,6 @@ console.log("🦜 Ahoy! Script is running!");
       backDelay: 2000
     });
   }
-
-  /*---------------------------
-   * Portfolio filtering with Isotope
-   ----------------------------*/
-  window.addEventListener('load', () => {
-    const container = select('.portfolio-container');
-    if (container) {
-      const isotope = new Isotope(container, {
-        itemSelector: '.portfolio-item'
-      });
-
-      const filters = select('#portfolio-flters li', true);
-      on('click', '#portfolio-flters li', function (e) {
-        e.preventDefault();
-        filters.forEach(f => f.classList.remove('filter-active'));
-        this.classList.add('filter-active');
-
-        isotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        isotope.on('arrangeComplete', () => AOS.refresh());
-      }, true);
-    }
-  });
-
-  /*---------------------------
-   * GLightbox (image viewer)
-   ----------------------------*/
-  GLightbox({ selector: '.portfolio-lightbox' });
-
-  /*---------------------------
-   * Portfolio details slider
-   ----------------------------*/
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    }
-  });
-
-  /*---------------------------
-   * Testimonials slider
-   ----------------------------*/
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: { slidesPerView: 1, spaceBetween: 20 },
-      1200: { slidesPerView: 3, spaceBetween: 20 }
-    }
-  });
 
   /*---------------------------
    * AOS init (on scroll animation)
