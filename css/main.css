@@ -93,24 +93,42 @@ h1, h2, h3, h4, h5, h6 {
 /* Social/icon links */
 #header .profile .social-links {
   margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 #header .profile .social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.12s ease;
+}
+#header .profile .social-links a i {
   font-size: 18px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   background: #212431;
   color: #fff;
-  padding: 8px 0;
-  margin-right: 6px;
   border-radius: 50%;
-  text-align: center;
   width: 36px;
   height: 36px;
-  vertical-align: middle;
-  transition: background 0.2s ease, transform 0.12s ease;
+  transition: background 0.2s ease;
+}
+#header .profile .social-links a span {
+  white-space: nowrap;
 }
 #header .profile .social-links a:hover {
+  color: var(--primary);
+  transform: translateX(4px);
+}
+#header .profile .social-links a:hover i {
   background: var(--primary);
-  transform: translateY(-2px);
 }
 
 /*--------------------------------------------------------------
@@ -442,3 +460,4 @@ ul { list-style-type: none; padding-left: 0; }
 
 /* allow iframe in hero to render without clipping */
 #hero { overflow: visible; }
+
