@@ -13,6 +13,8 @@
   --text: #272829;
   --light-bg: #f5f8fd;
   --card-border: #e6eef6;
+  --pt-gold: #ffc107;
+  --pt-gold-light: #ffda5d;
 }
 
 /*--------------------------------------------------------------
@@ -478,8 +480,6 @@ body.theme-pirate-tools {
   --pt-purple: #632ca6;
   --pt-purple-light: #8b5cc7;
   --pt-purple-glow: rgba(99, 44, 166, 0.38);
-  --pt-gold: #ffc107;
-  --pt-gold-light: #ffda5d;
 
   position: relative;
   color: var(--pt-text);
@@ -573,17 +573,22 @@ body.theme-pirate-tools .form-control::placeholder {
   color: #716b7e;
 }
 
-/* gold gradient buttons, matching "Board the Tools" */
-body.theme-pirate-tools .btn-primary {
+/* gold gradient button — usable on any page, themed or not */
+.btn-gold {
   background: linear-gradient(135deg, var(--pt-gold), var(--pt-gold-light));
   border: 0;
   color: #18120a;
   font-weight: 700;
   box-shadow: 0 12px 28px rgba(255, 193, 7, 0.16);
+  transition: filter 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
-body.theme-pirate-tools .btn-primary:hover {
+.btn-gold:hover {
   filter: brightness(1.05);
   box-shadow: 0 16px 34px rgba(255, 193, 7, 0.22);
+  color: #18120a;
+}
+.btn-gold:active {
+  transform: translateY(1px);
 }
 
 /* rumresources doc links restyled as dark cards */
