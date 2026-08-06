@@ -117,6 +117,6 @@ GitHub only allows **one** `username.github.io` per user account. Here's the wor
 
 *Yo ho ho and a bottle of RUM data!* 🍾
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-rum.naveengupta.info-632ca6?style=for-the-badge&logo=google-chrome&logoColor=white)](https://rumlabs.naveengupta.info)
+[![Live Site](https://img.shields.io/badge/Live%20Site-rumlabs.naveengupta.info-632ca6?style=for-the-badge&logo=google-chrome&logoColor=white)](https://rumlabs.naveengupta.info)
 
 </div>
