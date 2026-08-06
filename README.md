@@ -57,9 +57,9 @@ You'll need both of these values in the next section:
 
 ## 🚀 Setup Steps
 
-### Step 1 — Fork this repo
+### Step 1 — Clone this repo
 
-Click **Fork** in the top-right corner of this page to get your own copy.
+Click **Clone** in the top-right corner of this page to get your own copy.
 
 ---
 
