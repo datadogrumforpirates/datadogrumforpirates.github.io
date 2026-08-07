@@ -48,6 +48,7 @@ You'll need both of these values in the next section:
 |---|
 | 🔑 **Client Token** |
 | 🪪 **Application ID** |
+| 🌐 **Site** |
 
 > ⚠️ Neither of these is the same as your Datadog **Application Key** or **API Key**.
 
@@ -65,15 +66,9 @@ Click **Clone** in the top-right corner of this page to get your own copy.
 
 ### Step 2 — Inject your RUM credentials
 
-Open each of the files below and replace the placeholder client token and application ID with the values saved in Prerequisite Step 3:
+Open the file below and replace the client token, application ID, and Datadog site with the values saved in Prerequisite Step 3:
 
-| File | |
-|---|---|
-| `/index.html` | 📄 Main page |
-| `/games/tic.html` | 🎮 Tic-tac-toe game |
-| `/test/index.html` | 🧪 Test page |
-| `/rumresources/index.html` | 📊 RUM Resources page |
-|`/tools/index.html`| 🛠️ HAR Analyzer Tool |
+`js/datadog-config.js`
 
 ---
 
